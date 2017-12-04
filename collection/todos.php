@@ -6,7 +6,7 @@
  * Time: 11:03 PM
  */
     namespace collection;
-    final class todos extends collection {
+    final class todos extends \core\database\collection {
         protected static $modelName = 'todos';
     }
 ?>
