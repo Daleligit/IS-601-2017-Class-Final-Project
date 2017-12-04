@@ -6,7 +6,7 @@
  * Time: 11:03 PM
  */
     namespace collection;
-    final class accounts extends collection {
+    final class accounts extends \core\database\collection {
         protected static $modelName = 'accounts';
     }
 ?>
