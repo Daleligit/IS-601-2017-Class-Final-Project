@@ -6,7 +6,7 @@
  * Time: 11:01 PM
  */
     namespace model;
-    final class accounts extends model {
+    final class accounts extends \core\database\model {
         public $id;
         public $email;
         public $fname;
