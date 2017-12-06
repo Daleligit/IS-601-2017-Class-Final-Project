@@ -6,7 +6,7 @@
  * Time: 11:00 PM
  */
     namespace model;
-    final class todos extends model {
+    final class todos extends \core\database\model {
         public $id;
         public $owneremail;
         public $ownerid;
