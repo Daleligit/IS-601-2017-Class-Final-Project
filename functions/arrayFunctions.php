@@ -31,5 +31,11 @@
         {
             return array_keys($array);
         }
+
+        public static function arrayShift($array)
+        {
+            array_Shift($array);
+            return $array;
+        }
     }
 ?>
