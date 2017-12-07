@@ -11,7 +11,8 @@
         //factory to make model
         static public function create()
         {
-            $model = new static::$modelName;
+            $name = '\\model\\' . static::$modelName;
+            $model = new $name;
             return $model;
         }
         static public function findAll()
@@ -31,7 +32,7 @@
             $db = dbConn::getConnection();
             $statement = $db->prepare($sql);
             $statement->execute();
-            $class = static::$modelName;
+            $class = '\\collection\\' . static::$modelName;
             $statement->setFetchMode(\PDO::FETCH_CLASS, $class);
             $recordsSet = $statement->fetchAll();
             return $recordsSet;
