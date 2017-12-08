@@ -5,9 +5,9 @@
  * Date: 12/7/2017
  * Time: 9:22 PM
  */
-    use functions\forms as nameSpc, functions\htmlTags as nameSpc2, functions\stringFunctions as nameSpc3;
+    use functions\forms as form, functions\htmlTags as htmlTag, functions\stringFunctions as stringFunction;
     $html = $data['site_name'];
-    $html .= nameSpc::loginForm();
-    $html .= nameSpc2::headingOne(nameSpc2::hyperLink('index.php?page=accounts&action=register', 'Register'));
-    nameSpc3::printThis($html);
+    $html .= form::loginForm();
+    $html .= htmlTag::headingOne(htmlTag::hyperLink('index.php?page=accounts&action=register', 'Register'));
+    stringFunction::printThis($html);
 ?>
