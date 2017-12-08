@@ -52,5 +52,8 @@
         static public function horizontalRule() {
             return '<hr>';
         }
+        static public function hyperLink ($link, $words = NULL) {
+            return '<a href="' . $link . '">' . $words . '</a>';
+        }
     }
 ?>
