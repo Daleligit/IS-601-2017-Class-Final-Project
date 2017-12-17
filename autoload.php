@@ -16,3 +16,5 @@
             include self::setDir($class);
         }
     }
+    spl_autoload_register(array('Manage', 'autoload'));
+?>
