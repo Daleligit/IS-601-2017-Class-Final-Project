@@ -38,6 +38,16 @@
             $route->method = 'all';
             $routes[] = $route;
 
+            //This is an examole of the post for tasks to show a task
+            //GET METHOD index.php?page=tasks&action=show
+            $route = new route();
+            $route->http_method = 'GET';
+            $route->action = 'show';
+            $route->page = 'tasks';
+            $route->controller = 'tasksController';
+            $route->method = 'show';
+            $routes[] = $route;
+
             return $routes;
         }
     }
