@@ -6,6 +6,7 @@
  * Time: 11:12 PM
  */
     namespace core\database;
+    use \functions\arrayFunctions as nameSpc1, \functions\stringFunctions as nameSpc2;
     abstract class collection
     {
         //factory to make model
@@ -18,12 +19,14 @@
         static public function findAll()
         {
             $tableName = get_called_class();
+            $tableName = nameSpc1::arrayEnd(nameSpc2::stringExplode('\\',$tableName));
             $sql = 'SELECT * FROM ' . $tableName;
             return self::getResults($sql);
         }
         static public function findOne($id)
         {
             $tableName = get_called_class();
+            $tableName = nameSpc1::arrayEnd(nameSpc2::stringExplode('\\',$tableName));
             $sql = 'SELECT * FROM ' . $tableName . ' WHERE id =' . $id;
             return self::getResults($sql);
         }
