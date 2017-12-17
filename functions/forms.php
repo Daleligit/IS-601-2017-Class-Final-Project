@@ -19,14 +19,14 @@
             $form .= '</form>';
             return $form;
         }
-        static public function deleteTaskForm ($data) {
-            $form = '<form action="index.php?page=tasks&action=delete&id=' . $data->id .  '" method="post" id="form1">';
-            $form .= '<button type="submit" form="form1" value="delete">Delete</button>';
+        static public function deleteTaskForm ($id) {
+            $form = '<form action="index.php?page=tasks&action=delete&id=' . $id .  '" method="post" id="form2">';
+            $form .= '<button type="submit" form="form2" value="delete">Delete</button>';
             $form .= '</form>';
             return $form;
         }
-        static public function editTaskForm ($data) {
-            $form = '<form action="index.php?page=tasks&action=edit&id=' . $data->id .  '" method="post" id="form1">';
+        static public function editTaskForm ($id) {
+            $form = '<form action="index.php?page=tasks&action=edit&id=' . $id .  '" method="post" id="form1">';
             $form .= '<button type="submit" form="form1" value="edit">Edit</button>';
             $form .= '</form>';
             return $form;
