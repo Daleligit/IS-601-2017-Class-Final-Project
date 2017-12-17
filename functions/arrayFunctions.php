@@ -37,5 +37,10 @@
             array_Shift($array);
             return $array;
         }
+
+        public static function arrayEnd ($array)
+        {
+            return end($array);
+        }
     }
 ?>

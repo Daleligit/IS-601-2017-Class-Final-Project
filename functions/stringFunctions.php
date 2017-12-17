@@ -10,8 +10,11 @@
         static public function printThis($input) {
             print($input);
         }
-        static public function rightTrim($inputArray, $chr) {
-            return rtrim($inputArray, $chr);
+        static public function rightTrim($inputString, $chr) {
+            return rtrim($inputString, $chr);
+        }
+        static public function stringExplode($separator, $string) {
+            return explode($separator, $string);
         }
     }
 ?>
