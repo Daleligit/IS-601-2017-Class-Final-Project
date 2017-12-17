@@ -7,7 +7,8 @@
  */
     use functions\forms as form, functions\htmlTags as htmlTag, functions\stringFunctions as stringFunction;
     $html = $data['site_name'];
+    $html .= htmlTag::headingOne('Log In');
     $html .= form::loginForm();
-    $html .= htmlTag::headingOne(htmlTag::hyperLink('index.php?page=accounts&action=register', 'Register'));
+    $html .= htmlTag::hyperLink('index.php?page=accounts&action=register', 'Register');
     stringFunction::printThis($html);
 ?>
