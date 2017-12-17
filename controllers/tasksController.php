@@ -77,6 +77,6 @@
             $record = nameSpc\todos::create();
             $record->id = $_REQUEST['id'];
             $record->delete();
-            print_r($_POST);
+            header('Location: index.php?page=tasks&action=all');
         }
     }
