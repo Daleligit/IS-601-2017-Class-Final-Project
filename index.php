@@ -10,5 +10,5 @@
 
     include_once "autoload.php";
     include_once "database.php";
-    $response = core\http\processRequest::createResponse();
+    $response = \core\http\processRequest::createResponse();
 ?>
