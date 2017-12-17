@@ -12,7 +12,7 @@
     //POST index.php?page=accounts?action=logout  this would destroy the session and return the user to the homepage
     //GET  index.php?page=accounts?action=show  this would be to show the user profile and you get the userID out of session
     namespace controllers;
-    class homepageController extends \core\http\controller
+    final class homepageController extends \core\http\controller
     {
         public static function show()
         {

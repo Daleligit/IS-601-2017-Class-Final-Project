@@ -10,7 +10,7 @@
     //this fix include both namespace and how to call other classes with namespace
     namespace controllers;
     use \collection as nameSpc;
-    class tasksController extends \core\http\controller
+    final class tasksController extends \core\http\controller
     {
         //each method in the controller is named an action.
         //to call the show function the url is index.php?page=task&action=show
