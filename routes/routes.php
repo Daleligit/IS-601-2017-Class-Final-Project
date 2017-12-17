@@ -56,6 +56,22 @@
             $route->method = 'edit';
             $routes[] = $route;
 
+            $route = new route();
+            $route->http_method = 'POST';
+            $route->action = 'delete';
+            $route->page = 'tasks';
+            $route->controller = 'tasksController';
+            $route->method = 'delete';
+            $routes[] = $route;
+
+            $route = new route();
+            $route->http_method = 'POST';
+            $route->action = 'save';
+            $route->page = 'tasks';
+            $route->controller = 'tasksController';
+            $route->method = 'save';
+            $routes[] = $route;
+
             return $routes;
         }
     }
