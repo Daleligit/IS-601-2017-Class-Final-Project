@@ -72,8 +72,7 @@
                 $task->isdone = 0;
             }
             $task->save();
-            $record = nameSpc\todos::findOne($_REQUEST['id']);
-            self::getTemplate('edit_task', $record);
+            header('Location: index.php?page=tasks&action=edit&id=' . $_REQUEST['id']);
         }
         //this is the delete function.  You actually return the edit form and then there should be 2 forms on that.
         //One form is the todo and the other is just for the delete button
@@ -83,7 +82,6 @@
             $record = nameSpc\todos::create();
             $record->id = $_REQUEST['id'];
             $record->delete();
-            $records = nameSpc\todos::findAll();
-            self::getTemplate('all_tasks', $records);
+            header('Location: index.php?page=tasks&action=all');
         }
     }
