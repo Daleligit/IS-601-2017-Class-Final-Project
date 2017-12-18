@@ -20,10 +20,11 @@
                     $sql = $this->update($array);
                 } else {
                     foreach ($array as $key => $value) {
-                        if (is_null($value)) {
+                        if (empty($value)) {
                             $array[$key] = 'null';
                         }
                     }
+                    print_r($array);
                     $array = nameSpc\arrayFunctions::arrayShift($array);
                     $columnArray = nameSpc\arrayFunctions::arrayKeys($array);
                     $columnString = implode(',', $columnArray);

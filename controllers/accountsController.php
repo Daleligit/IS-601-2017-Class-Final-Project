@@ -41,17 +41,17 @@
             $user = nameSpc\accounts::findUserbyEmail($_REQUEST['email']);
             if ($user == FALSE) {
                 $user = nameSpc\accounts::create();
-                $user->email = $_POST['email'];
-                $user->fname = $_POST['fname'];
-                $user->lname = $_POST['lname'];
-                $user->phone = $_POST['phone'];
-                $user->birthday = $_POST['birthday'];
-                $user->gender = $_POST['gender'];
+                $user->email = '\'' . $_POST['email'] . '\'';
+                $user->fname = '\'' . $_POST['fname'] . '\'';
+                $user->lname = '\'' . $_POST['lname'] . '\'';
+                $user->phone = '\'' . $_POST['phone'] . '\'';
+                $user->birthday = '\'' . $_POST['birthday'] . '\'';
+                $user->gender = '\'' . $_POST['gender'] . '\'';
                 //$user->password = $_POST['password'];
                 //this creates the password
                 //this is a mistake you can fix...
                 //Turn the set password function into a static method on a utility class.
-                $user->password = $user->setPassword($_POST['password']);
+                $user->password = '\'' . $user->setPassword($_POST['password']) . '\'';
                 $user->save();
                 //you may want to send the person to a
                 // login page or create a session and log them in
@@ -62,7 +62,7 @@
                 // and load the template here with the error you want to show.
                 // echo 'already registered';
                 $error = 'already registered';
-                    self::getTemplate('error', $error);
+                self::getTemplate('error', $error);
             }
         }
 
