@@ -20,43 +20,43 @@
             return $form;
         }
         static public function deleteTaskForm ($id) {
-            $form = '<form action="index.php?page=tasks&action=delete&id=' . $id .  '" method="post" id="form2">';
-            $form .= '<button type="submit" form="form2" value="delete">Delete</button>';
+            $form = '<form action="index.php?page=tasks&action=delete&id=' . $id .  '" method="post" id="form1">';
+            $form .= '<button type="submit" form="form1" value="delete">Delete</button>';
             $form .= '</form>';
             return $form;
         }
         static public function editTaskForm ($id) {
-            $form = '<form action="index.php?page=tasks&action=edit&id=' . $id .  '" method="post" id="form1">';
-            $form .= '<button type="submit" form="form1" value="edit">Edit</button>';
+            $form = '<form action="index.php?page=tasks&action=edit&id=' . $id .  '" method="post" id="form2">';
+            $form .= '<button type="submit" form="form2" value="edit">Edit</button>';
             $form .= '</form>';
             return $form;
         }
         static public function editTaskDetailForm ($id) {
-            $form = '<form action="index.php?page=tasks&action=save&id=' . $id . '" method="post">';
+            $form = '<form action="index.php?page=tasks&action=save&id=' . $id . '" method="post" id="form3">';
             $form .= 'body:     <input type="text" name="body" required></br>';
             $form .= 'complete: <input type="radio" name="complete" value="Yes" checked>Yes';
             $form .= '<input type="radio" name="complete" value="No">No</br>';
-            $form .= '<input type="submit" value="Save" name="submit">';
+            $form .= '<input type="submit" value="Save" name="submit" form="form3">';
             $form .= '</form>';
             return $form;
         }
         static public function createTaskForm () {
-            $form = '<form action="index.php?page=tasks&action=create" method="post" id="form">';
-            $form .= '<button type="submit" form="form" value="Create">Create</button>';
+            $form = '<form action="index.php?page=tasks&action=create" method="post" id="form4">';
+            $form .= '<button type="submit" form="form4" value="Create">Create</button>';
             $form .= '</form>';
             return $form;
         }
         static public function createTaskDetialForm () {
-            $form = '<form action="index.php?page=tasks&action=store" method="post">';
+            $form = '<form action="index.php?page=tasks&action=store" method="post" form="form5">';
             $form .= 'body:     <input type="text" name="body" required></br>';
             $form .= 'complete: <input type="radio" name="complete" value="Yes" checked>Yes';
             $form .= '<input type="radio" name="complete" value="No">No</br>';
-            $form .= '<input type="submit" value="create" name="submit">';
+            $form .= '<input type="submit" value="create" name="submit" form="form5">';
             $form .= '</form>';
             return $form;
         }
         static public function registerForm () {
-            $form = '<form action="index.php?page=accounts&action=register" method="post">';
+            $form = '<form action="index.php?page=accounts&action=register" method="post" form="form6"> ';
             $form .= 'First name: <input type="text" name="fname" required><br>';
             $form .= 'Last name: <input type="text" name="lname" required><br>';
             $form .= 'Email: <input type="text" name="email" required><br>';
@@ -64,12 +64,12 @@
             $form .= 'Phone: <input type="text" name="phone"><br>';
             $form .= 'Birthday: <input type="text" name="birthday"><br>';
             $form .= 'Gender: <input type="text" name="gender"><br>';
-            $form .= '<input type="submit" value="Submit form">';
+            $form .= '<input type="submit" value="Submit form" form="form6">';
             $form .= '</form>';
             return $form;
         }
         static public function userUpdateForm($data) {
-            $form = '<form action="index.php?page=accounts&action=save" method="post">';
+            $form = '<form action="index.php?page=accounts&action=save" method="post" form="form7">';
             $form .= 'First name: <input type="text" name="fname" value="' . $data[0]->fname .  '" required><br>';
             $form .= 'Last name: <input type="text" name="lname" value="' . $data[0]->lname . '" required><br>';
             $form .= 'Email: <input type="text" name="email" value="' . $data[0]->email . '" required><br>';
@@ -77,37 +77,37 @@
             $form .= 'Birthday: <input type="text" name="birthday" value="' . $data[0]->birthday . '"><br>';
             $form .= 'Gender: <input type="text" name="gender" value="' . $data[0]->gender . '"><br>';
             $form .= 'Password: <input type="password" name="password" ><br>';
-            $form .= '<input type="submit" value="Update">';
+            $form .= '<input type="submit" value="Update" form="form7">';
             $form .= '</form>';
             return $form;
         }
         static public function deleteUserForm() {
-            $form = '<form action="index.php?page=accounts&action=delete" method="post" id="form2">';
-            $form .= '<button type="submit" form="form2" value="delete">Delete</button>';
+            $form = '<form action="index.php?page=accounts&action=delete" method="post" id="form8">';
+            $form .= '<button type="submit" form="form8" value="delete">Delete</button>';
             $form .= '</form>';
             return $form;
         }
         static public function editUserForm() {
-            $form = '<form action="index.php?page=accounts&action=edit" method="post" id="form3">';
-            $form .= '<button type="submit" form="form3" value="edit">Edit</button>';
+            $form = '<form action="index.php?page=accounts&action=edit" method="post" id="form9">';
+            $form .= '<button type="submit" form="form9" value="edit">Edit</button>';
             $form .= '</form>';
             return $form;
         }
         static public function userProfile() {
-            $form = '<form action="index.php?page=accounts&action=show" method="post" id="form4">';
-            $form .= '<button type="submit" form="form4" value="profile">Profile</button>';
+            $form = '<form action="index.php?page=accounts&action=show" method="post" id="form10">';
+            $form .= '<button type="submit" form="form10" value="profile">Profile</button>';
             $form .= '</form>';
             return $form;
         }
         static public function userLogOut () {
-            $form = '<form action="index.php?page=accounts&action=logout" method="post" id="form5">';
-            $form .= '<button type="submit" form="form5" value="logout">Logout</button>';
+            $form = '<form action="index.php?page=accounts&action=logout" method="post" id="form11">';
+            $form .= '<button type="submit" form="form11" value="logout">Logout</button>';
             $form .= '</form>';
             return $form;
         }
         static public function backBottom ($link, $words) {
-            $form = '<form action="' . $link . '" method="post" id="form5">';
-            $form .= '<button type="submit" form="form5" value="logout">' . $words . '</button>';
+            $form = '<form action="' . $link . '" method="post" id="form12">';
+            $form .= '<button type="submit" form="form12" value="logout">' . $words . '</button>';
             $form .= '</form>';
             return $form;
         }

@@ -11,4 +11,5 @@
     $html .= nameSpc1::showTaskTable($data);
     $html .= nameSpc3::editTaskForm($data[0]->id);
     $html .= nameSpc3::deleteTaskForm($data[0]->id);
+    $html .= nameSpc3::backBottom('index.php?page=tasks&action=all', 'Back');
     nameSpc2::printThis($html);

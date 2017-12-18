@@ -10,5 +10,6 @@
     $html .= nameSpc3::userLogOut();
     $html .= nameSpc1::showTaskTable($data);
     $html .= nameSpc3::editTaskDetailForm($data[0]->id);
+    $html .= nameSpc3::backBottom('index.php?page=tasks&action=show&id=' . $data[0]->id,'Back');
     nameSpc2::printThis($html);
 ?>

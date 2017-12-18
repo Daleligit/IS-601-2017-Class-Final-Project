@@ -99,6 +99,7 @@
             $record = nameSpc\accounts::create();
             $record->id = $_SESSION['userID'];
             $record->delete();
+            session_destroy();
             header("Location: index.php");
         }
 

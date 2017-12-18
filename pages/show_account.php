@@ -10,5 +10,6 @@
     $html .= nameSpc3::createAccountTable($data);
     $html .= nameSpc2::editUserForm();
     $html .= nameSpc2::deleteUserForm();
+    $html .= nameSpc2::backBottom('index.php?page=tasks&action=all','Back');
     nameSpc1::printThis($html);
 ?>

@@ -9,5 +9,6 @@
     $html = nameSpc2::userLogOut();
     $html .= nameSpc3::createAccountTable($data);
     $html .= nameSpc2::userUpdateForm($data);
+    $html .= nameSpc2::backBottom('index.php?page=accounts&action=show','Back');
     nameSpc1::printThis($html);
 ?>

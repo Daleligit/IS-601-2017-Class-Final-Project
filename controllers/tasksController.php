@@ -26,7 +26,8 @@
             $records = nameSpc\todos::findAll();
             session_start();
             if(!key_exists('userID',$_SESSION)) {
-                echo 'you must be logged in to view tasks';
+                $error = 'You must be Logged in to View Tasks';
+                self::getTemplate('error', $error);
             } else {
                 self::getTemplate('all_tasks', $records);
             }
