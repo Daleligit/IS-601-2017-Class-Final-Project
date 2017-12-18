@@ -24,7 +24,9 @@
                             $array[$key] = 'null';
                         }
                     }
-                    print_r($array);
+                    if ($array['complete']=='null') {
+                        $array['complete'] = 0;
+                    }
                     $array = nameSpc\arrayFunctions::arrayShift($array);
                     $columnArray = nameSpc\arrayFunctions::arrayKeys($array);
                     $columnString = implode(',', $columnArray);
@@ -32,7 +34,6 @@
                     $sql = $this->insert($columnString, $valueString);
                     $INSERT = TRUE;
                 }
-                print($sql);
                 try {
                     $statement = $db->prepare($sql);
                     $statement->execute();

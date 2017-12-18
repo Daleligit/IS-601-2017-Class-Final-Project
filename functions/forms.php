@@ -40,14 +40,14 @@
             $form .= '</form>';
             return $form;
         }
-        static public function createTaskForm () {
-            $form = '<form action="index.php?page=tasks&action=create" method="post" id="form">';
+        static public function createTaskForm ($id) {
+            $form = '<form action="index.php?page=tasks&action=create&id=' . $id . '" method="post" id="form">';
             $form .= '<button type="submit" form="form" value="Create">Create</button>';
             $form .= '</form>';
             return $form;
         }
-        static public function createTaskDetialForm () {
-            $form = '<form action="index.php?page=tasks&action=build" method="post">';
+        static public function createTaskDetialForm ($id) {
+            $form = '<form action="index.php?page=tasks&action=store&id=' . $id . '" method="post">';
             $form .= 'body:     <input type="text" name="body" required></br>';
             $form .= 'complete: <input type="radio" name="complete" value="Yes" checked>Yes';
             $form .= '<input type="radio" name="complete" value="No">No</br>';

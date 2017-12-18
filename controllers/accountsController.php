@@ -113,11 +113,10 @@
                 $check->id = $user->id;
                 $check->password = $user->password;
                 if ($check->checkPassword($_POST['password']) == TRUE) {
-                    echo 'login';
                     session_start();
                     $_SESSION["userID"] = $check->id;
                     //forward the user to the show all todos page
-                    print_r($_SESSION);
+                    header('Location: index.php?page=tasks&action=all&id=' . $_SESSION["userID"]);
                 } else {
                     $error = 'Password does not Match';
                     self::getTemplate('error', $error);

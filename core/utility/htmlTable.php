@@ -32,16 +32,18 @@
         static public function createTaskList ($inputArray) {
             $table = self::createTaskTable($inputArray,1);
             foreach ($inputArray as $key => $line) {
-                $table .= nameSpc::tableLineStart();
-                foreach ($line as $columns => $value) {
-                    if ($columns == 'id'){
-                        $valueLink = nameSpc::hyperLink('index.php?page=tasks&action=show&id=' . $value, 'View');
-                        $table .= nameSpc::tableDetail($valueLink);
-                    } else if ($columns != 'owneremail' && $columns != 'ownerid') {
-                        $table .= nameSpc::tableDetail($value);
+                if ($line->ownerid == $_REQUEST['id']) {
+                    $table .= nameSpc::tableLineStart();
+                    foreach ($line as $columns => $value) {
+                        if ($columns == 'id') {
+                            $valueLink = nameSpc::hyperLink('index.php?page=tasks&action=show&id=' . $value, 'View');
+                            $table .= nameSpc::tableDetail($valueLink);
+                        } else if ($columns != 'owneremail' && $columns != 'ownerid') {
+                            $table .= nameSpc::tableDetail($value);
+                        }
                     }
+                    $table .= nameSpc::tableLineEnd();
                 }
-                $table .= nameSpc::tableLineEnd();
             }
             $table .= nameSpc::tableEnd();
             return $table;

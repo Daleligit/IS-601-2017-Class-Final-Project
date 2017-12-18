@@ -43,12 +43,6 @@
             self::getTemplate('create_tasks');
         }
 
-        public static function build() {
-            session_start();
-            $task = nameSpc\todos::create();
-           // $task->c
-        }
-
         //this is the function to view edit record form
         public static function edit()
         {
@@ -58,14 +52,21 @@
 
         //this would be for the post for sending the task edit form
         //fixed store function
-       /* public static function store()
+       public static function store()
         {
             $record = nameSpc\todos::create();
-            $record->id = $_REQUEST['id'];
+            $record->ownerid = $_REQUEST['id'];
             $record->body = $_REQUEST['body'];
+            if ($_REQUEST['complete'] == 'Yes') {
+                $record->complete = 1;
+            } else {
+                $record->complete = 0;
+            }
+            $record->createddate ='\'' . date('Y-m-d H:i:s') . '\'';
+            $record->updateddate ='\'' . date('Y-m-d H:i:s') . '\'';
             $record->save();
-            print_r($_POST);
-        } */
+            header('Location: index.php?page=tasks&action=all&id=' . $_REQUEST['id']);
+        }
         //fixed save function
         public static function save()
         {
@@ -86,9 +87,10 @@
         //fixed delete function
         public static function delete()
         {
+            session_start();
             $record = nameSpc\todos::create();
             $record->id = $_REQUEST['id'];
             $record->delete();
-            header('Location: index.php?page=tasks&action=all');
+            header('Location: index.php?page=tasks&action=all&id=' . $_SESSION["userID"]);
         }
     }

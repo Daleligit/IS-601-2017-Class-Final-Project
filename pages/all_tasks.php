@@ -7,6 +7,6 @@
  */
     use \core\utility\htmlTable as nameSpc1, \functions\stringFunctions as nameSpc2, \functions\forms as nameSpc3;
     $html = nameSpc1::createTaskList($data);
-    $html .= nameSpc3::createTaskForm();
+    $html .= nameSpc3::createTaskForm($_GET['id']);
     nameSpc2::printThis($html);
 ?>

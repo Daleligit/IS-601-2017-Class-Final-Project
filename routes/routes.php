@@ -88,6 +88,14 @@
             $route->method = 'create';
             $routes[] = $route;
 
+            $route = new route();
+            $route->http_method = 'POST';
+            $route->action = 'store';
+            $route->page = 'tasks';
+            $route->controller = 'tasksController';
+            $route->method = 'store';
+            $routes[] = $route;
+
             //this is the route for the reg form
             $route = new route();
             $route->http_method = 'GET';
