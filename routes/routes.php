@@ -138,6 +138,14 @@
             $route->method = 'store';
             $routes[] = $route;
 
+            $route = new route();
+            $route->http_method = 'GET';
+            $route->action = 'register';
+            $route->page = 'accounts';
+            $route->controller = 'accountsController';
+            $route->method = 'store';
+            $routes[] = $route;
+
             //GET METHOD index.php?page=accounts&action=show
             $route = new route();
             $route->http_method = 'GET';

@@ -16,5 +16,8 @@
         static public function stringExplode($separator, $string) {
             return explode($separator, $string);
         }
+        static public function stringLength($string){
+            return strlen($string);
+        }
     }
 ?>
