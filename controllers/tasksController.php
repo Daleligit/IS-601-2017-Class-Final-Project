@@ -54,7 +54,7 @@
             session_start();
             $record = nameSpc\todos::create();
             $record->ownerid = $_SESSION['userID'];
-            $record->body = $_REQUEST['body'];
+            $record->body = '\'' .$_REQUEST['body'] . '\'';
             if ($_REQUEST['complete'] == 'Yes') {
                 $record->complete = 1;
             } else {
@@ -70,7 +70,7 @@
         {
             $task = nameSpc\todos::create();
             $task->id = $_REQUEST['id'];
-            $task->body = $_POST['body'];
+            $task->body = '\'' . $_POST['body'] . '\'';
             if ($_POST['complete'] == 'Yes') {
                 $task->complete = 1;
             } else {
