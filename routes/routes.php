@@ -80,6 +80,14 @@
             $route->method = 'save';
             $routes[] = $route;
 
+            $route = new route();
+            $route->http_method = 'POST';
+            $route->action = 'create';
+            $route->page = 'tasks';
+            $route->controller = 'tasksController';
+            $route->method = 'create';
+            $routes[] = $route;
+
             return $routes;
         }
     }

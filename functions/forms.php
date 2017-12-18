@@ -33,10 +33,25 @@
         }
         static public function editTaskDetailForm ($id) {
             $form = '<form action="index.php?page=tasks&action=save&id=' . $id . '" method="post">';
-            $form .= 'Message:<input type="text" name="message" required></br>';
-            $form .= 'Isdone: <input type="radio" name="isdone" value="Yes" checked>Yes';
-            $form .= '<input type="radio" name="isdone" value="No">No</br>';
+            $form .= 'body:     <input type="text" name="body" required></br>';
+            $form .= 'complete: <input type="radio" name="complete" value="Yes" checked>Yes';
+            $form .= '<input type="radio" name="complete" value="No">No</br>';
             $form .= '<input type="submit" value="Save" name="submit">';
+            $form .= '</form>';
+            return $form;
+        }
+        static public function createTaskForm () {
+            $form = '<form action="index.php?page=tasks&action=create" method="post" id="form">';
+            $form .= '<button type="submit" form="form" value="Create">Create</button>';
+            $form .= '</form>';
+            return $form;
+        }
+        static public function createTaskDetialForm () {
+            $form = '<form action="index.php?page=tasks&action=build" method="post">';
+            $form .= 'body:     <input type="text" name="body" required></br>';
+            $form .= 'complete: <input type="radio" name="complete" value="Yes" checked>Yes';
+            $form .= '<input type="radio" name="complete" value="No">No</br>';
+            $form .= '<input type="submit" value="create" name="submit">';
             $form .= '</form>';
             return $form;
         }

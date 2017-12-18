@@ -40,7 +40,13 @@
         //you should check the notes on the project posted in moodle for how to use active record here
         public static function create()
         {
-            print_r($_POST);
+            self::getTemplate('create_tasks');
+        }
+
+        public static function build() {
+            session_start();
+            $task = nameSpc\todos::create();
+           // $task->c
         }
 
         //this is the function to view edit record form
@@ -65,12 +71,13 @@
         {
             $task = nameSpc\todos::create();
             $task->id = $_REQUEST['id'];
-            $task->message = $_POST['message'];
-            if ($_POST['isdone'] == 'Yes') {
-                $task->isdone = 1;
+            $task->body = $_POST['body'];
+            if ($_POST['complete'] == 'Yes') {
+                $task->complete = 1;
             } else {
-                $task->isdone = 0;
+                $task->complete = 0;
             }
+            $task->updateddate ='\'' . date('Y-m-d H:i:s') . '\'';
             $task->save();
             header('Location: index.php?page=tasks&action=edit&id=' . $_REQUEST['id']);
         }

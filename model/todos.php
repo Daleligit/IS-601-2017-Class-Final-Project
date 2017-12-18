@@ -11,9 +11,9 @@
         public $owneremail;
         public $ownerid;
         public $createddate;
-        public $duedate;
-        public $message;
-        public $isdone;
+        public $updateddate;
+        public $body;
+        public $complete;
         protected static $modelName = 'todos';
         public function __construct()
         {

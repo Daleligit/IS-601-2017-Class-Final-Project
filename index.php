@@ -10,5 +10,6 @@
 
     include_once "autoload.php";
     include_once "database.php";
+    include_once "time.php";
     $response = \core\http\processRequest::createResponse();
 ?>
