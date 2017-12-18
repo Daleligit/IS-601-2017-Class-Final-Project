@@ -104,18 +104,23 @@
             //you might want to add something that handles if the password is invalid, you could add a page template and direct to that
             //after you login you can use the header function to forward the user to a page that displays their tasks.
             //        $record = accounts::findUser($_POST['email']);
-            $user = accounts::findUserbyEmail($_REQUEST['email']);
+            $user = \collection\accounts::findUserbyEmail($_REQUEST['email']);
             if ($user == FALSE) {
-                echo 'user not found';
+                $error = 'User not Found';
+                self::getTemplate('error', $error);
             } else {
-                if ($user->checkPassword($_POST['password']) == TRUE) {
+                $check = \collection\accounts::create();
+                $check->id = $user->id;
+                $check->password = $user->password;
+                if ($check->checkPassword($_POST['password']) == TRUE) {
                     echo 'login';
                     session_start();
-                    $_SESSION["userID"] = $user->id;
+                    $_SESSION["userID"] = $check->id;
                     //forward the user to the show all todos page
                     print_r($_SESSION);
                 } else {
-                    echo 'password does not match';
+                    $error = 'Password does not Match';
+                    self::getTemplate('error', $error);
                 }
             }
         }

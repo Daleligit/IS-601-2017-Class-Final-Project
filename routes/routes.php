@@ -147,6 +147,16 @@
             $route->method = 'edit';
             $routes[] = $route;
 
+            //This goes in the login form action method
+            //GET METHOD index.php?page=accounts&action=login
+            $route = new route();
+            $route->http_method = 'POST';
+            $route->action = 'login';
+            $route->page = 'accounts';
+            $route->controller = 'accountsController';
+            $route->method = 'login';
+            $routes[] = $route;
+
             return $routes;
         }
     }
