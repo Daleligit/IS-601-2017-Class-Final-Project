@@ -106,6 +106,39 @@
             $route->method = 'store';
             $routes[] = $route;
 
+            //GET METHOD index.php?page=accounts&action=show
+            $route = new route();
+            $route->http_method = 'GET';
+            $route->action = 'show';
+            $route->page = 'accounts';
+            $route->controller = 'accountsController';
+            $route->method = 'show';
+            $routes[] = $route;
+
+            $route = new route();
+            $route->http_method = 'POST';
+            $route->action = 'delete';
+            $route->page = 'accounts';
+            $route->controller = 'accountsController';
+            $route->method = 'delete';
+            $routes[] = $route;
+
+            $route = new route();
+            $route->http_method = 'POST';
+            $route->action = 'save';
+            $route->page = 'accounts';
+            $route->controller = 'accountsController';
+            $route->method = 'save';
+            $routes[] = $route;
+
+            $route = new route();
+            $route->http_method = 'GET';
+            $route->action = 'edit';
+            $route->page = 'accounts';
+            $route->controller = 'accountsController';
+            $route->method = 'edit';
+            $routes[] = $route;
+
             return $routes;
         }
     }

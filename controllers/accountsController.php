@@ -19,11 +19,11 @@
         }
 
         //to call the show function the url is index.php?page=accounts&action=all
-        public static function all()
+        /*public static function all()
         {
             $records = nameSpc\accounts::findAll();
             self::getTemplate('all_accounts', $records);
-        }
+        }*/
         //to call the show function the url is called with a post to: index.php?page=task&action=create
         //this is a function to create new tasks
         //you should check the notes on the project posted in moodle for how to use active record here
@@ -61,7 +61,7 @@
                 //You can make a template for errors called error.php
                 // and load the template here with the error you want to show.
                 // echo 'already registered';
-                $error = 'already registered';
+                $error = 'Already Registered';
                 self::getTemplate('error', $error);
             }
         }

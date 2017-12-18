@@ -60,5 +60,30 @@
             $table .= nameSpc::tableEnd();
             return $table;
         }
+        static public function createAccountTable($inputArray)
+        {
+            $table = nameSpc::tableHead('displayTable');
+            foreach ($inputArray as $key => $line) {
+                if ($key == 0) {
+                    $table .= nameSpc::tableLineStart();
+                    foreach ($line as $columns => $value) {
+                        if ($columns != 'id' && $columns != 'password') {
+                            $table .= nameSpc::tableTitle($columns);
+                        }
+                    }
+                    $table .= nameSpc::tableLineEnd();
+
+                    $table .= nameSpc::tableLineStart();
+                    foreach ($line as $columns => $value) {
+                        if ($columns != 'id' && $columns != 'password') {
+                            $table .= nameSpc::tableDetail($value);
+                        }
+                    }
+                    $table .= nameSpc::tableLineEnd();
+                }
+                $table .= nameSpc::tableEnd();
+            }
+            return $table;
+        }
     }
 ?>

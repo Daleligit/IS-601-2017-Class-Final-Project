@@ -68,5 +68,29 @@
             $form .= '</form>';
             return $form;
         }
+        static public function userUpdateForm($data) {
+            $form = '<form action="index.php?page=accounts&action=save&id=' . $data[0]->id . '" method="post">';
+            $form .= 'First name: <input type="text" name="fname" value="' . $data[0]->fname .  '"><br>';
+            $form .= 'Last name: <input type="text" name="lname" value="' . $data[0]->lname . '"><br>';
+            $form .= 'Last name: <input type="text" name="email" value="' . $data[0]->email . '"><br>';
+            $form .= 'Last name: <input type="text" name="phone" value="' . $data[0]->phone . '"><br>';
+            $form .= 'Last name: <input type="text" name="birthday" value="' . $data[0]->birthday . '"><br>';
+            $form .= 'Last name: <input type="text" name="gender" value="' . $data[0]->gender . '"><br>';
+            $form .= '<input type="submit" value="Submit form">';
+            $form .= '</form>';
+            return $form;
+        }
+        static public function deleteUserForm($id) {
+            $form = '<form action="index.php?page=accounts&action=delete&id=' . $id . '" method="post" id="form2">';
+            $form .= '<button type="submit" form="form2" value="delete">Delete</button>';
+            $form .= '</form>';
+            return $form;
+        }
+        static public function editUserForm($id) {
+            $form = '<form action="index.php?page=accounts&action=edit&id=' . $id . '" method="post" id="form1">';
+            $form .= '<button type="submit" form="form1" value="edit">Edit</button>';
+            $form .= '</form>';
+            return $form;
+        }
     }
 ?>
