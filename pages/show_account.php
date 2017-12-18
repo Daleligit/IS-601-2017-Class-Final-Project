@@ -6,7 +6,8 @@
  * Time: 9:51 PM
  */
     use \functions\stringFunctions as nameSpc1, \functions\forms as nameSpc2, \core\utility\htmlTable as nameSpc3;
-    $html = nameSpc3::createAccountTable($data);
+    $html = nameSpc2::userLogOut();
+    $html .= nameSpc3::createAccountTable($data);
     $html .= nameSpc2::editUserForm();
     $html .= nameSpc2::deleteUserForm();
     nameSpc1::printThis($html);

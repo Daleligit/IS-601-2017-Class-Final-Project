@@ -105,5 +105,11 @@
             $form .= '</form>';
             return $form;
         }
+        static public function backBottom ($link, $words) {
+            $form = '<form action="' . $link . '" method="post" id="form5">';
+            $form .= '<button type="submit" form="form5" value="logout">' . $words . '</button>';
+            $form .= '</form>';
+            return $form;
+        }
     }
 ?>
