@@ -12,6 +12,7 @@
         public $ownerid;
         public $createddate;
         public $updateddate;
+        public $duedate;
         public $body;
         public $complete;
         protected static $modelName = 'todos';

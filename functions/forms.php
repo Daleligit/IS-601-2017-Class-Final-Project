@@ -31,9 +31,10 @@
             $form .= '</form>';
             return $form;
         }
-        static public function editTaskDetailForm ($id) {
-            $form = '<form action="index.php?page=tasks&action=save&id=' . $id . '" method="post">';
-            $form .= 'body:     <input type="text" name="body" required></br>';
+        static public function editTaskDetailForm ($data) {
+            $form = '<form action="index.php?page=tasks&action=save&id=' . $data[0]->id . '" method="post">';
+            $form .= 'duedate:     <input type="text" name="duedate" value="' . $data[0]->duedate . '"></br>';
+            $form .= 'body:     <input type="text" name="body"  value="' . $data[0]->body . '"></br>';
             $form .= 'complete: <input type="radio" name="complete" value="Yes" checked>Yes';
             $form .= '<input type="radio" name="complete" value="No">No</br>';
             $form .= '<input type="submit" value="Save" name="submit">';
@@ -48,7 +49,8 @@
         }
         static public function createTaskDetialForm () {
             $form = '<form action="index.php?page=tasks&action=store" method="post">';
-            $form .= 'body:     <input type="text" name="body" required></br>';
+            $form .= 'duedate: <input type="text" name="duedate" value="' . date('Y-m-d H:i:s') .  '"></br>';
+            $form .= 'body: <input type="text" name="body"></br>';
             $form .= 'complete: <input type="radio" name="complete" value="Yes" checked>Yes';
             $form .= '<input type="radio" name="complete" value="No">No</br>';
             $form .= '<input type="submit" value="create" name="submit">';
