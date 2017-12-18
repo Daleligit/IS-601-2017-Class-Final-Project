@@ -139,6 +139,14 @@
             $route->method = 'edit';
             $routes[] = $route;
 
+            $route = new route();
+            $route->http_method = 'POST';
+            $route->action = 'edit';
+            $route->page = 'accounts';
+            $route->controller = 'accountsController';
+            $route->method = 'edit';
+            $routes[] = $route;
+
             return $routes;
         }
     }

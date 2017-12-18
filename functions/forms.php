@@ -76,7 +76,7 @@
             $form .= 'Last name: <input type="text" name="phone" value="' . $data[0]->phone . '"><br>';
             $form .= 'Last name: <input type="text" name="birthday" value="' . $data[0]->birthday . '"><br>';
             $form .= 'Last name: <input type="text" name="gender" value="' . $data[0]->gender . '"><br>';
-            $form .= '<input type="submit" value="Submit form">';
+            $form .= '<input type="submit" value="Update">';
             $form .= '</form>';
             return $form;
         }
