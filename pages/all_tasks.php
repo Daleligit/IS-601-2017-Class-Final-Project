@@ -6,6 +6,6 @@
  * Time: 3:33 PM
  */
     use \core\utility\htmlTable as nameSpc1, \functions\stringFunctions as nameSpc2;
-    $html = nameSpc1::createTable($data);
+    $html = nameSpc1::createTaskList($data);
     nameSpc2::printThis($html);
 ?>
