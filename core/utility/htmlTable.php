@@ -32,7 +32,7 @@
         static public function createTaskList ($inputArray) {
             $table = self::createTaskTable($inputArray,1);
             foreach ($inputArray as $key => $line) {
-                if ($line->ownerid == $_REQUEST['id']) {
+                if ($line->ownerid == $_SESSION['userID']) {
                     $table .= nameSpc::tableLineStart();
                     foreach ($line as $columns => $value) {
                         if ($columns == 'id') {

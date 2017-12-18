@@ -83,6 +83,9 @@
             $user->phone = '\'' . $_POST['phone'] . '\'';
             $user->birthday = '\'' . $_POST['birthday'] . '\'';
             $user->gender = '\'' . $_POST['gender'] . '\'';
+            if (!is_null($_POST['password'])) {
+                $user->password = '\'' . $user->setPassword($_POST['password']) . '\'';
+            }
             $user->save();
             header("Location: index.php?page=accounts&action=show&id=" . $_REQUEST['id']);
         }
@@ -116,7 +119,7 @@
                     session_start();
                     $_SESSION["userID"] = $check->id;
                     //forward the user to the show all todos page
-                    header('Location: index.php?page=tasks&action=all&id=' . $_SESSION["userID"]);
+                    header('Location: index.php?page=tasks&action=all');
                 } else {
                     $error = 'Password does not Match';
                     self::getTemplate('error', $error);

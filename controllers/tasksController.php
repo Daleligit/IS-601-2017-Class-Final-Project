@@ -24,15 +24,10 @@
         public static function all()
         {
             $records = nameSpc\todos::findAll();
-            /*session_start();
-               if(key_exists('userID',$_SESSION)) {
-                   $userID = $_SESSION['userID'];
-               } else {
+            session_start();
+               if(!key_exists('userID',$_SESSION)) {
                    echo 'you must be logged in to view tasks';
                }
-            $userID = $_SESSION['userID'];
-            $records = todos::findTasksbyID($userID);
-            */
             self::getTemplate('all_tasks', $records);
         }
         //to call the show function the url is called with a post to: index.php?page=task&action=create
@@ -54,8 +49,9 @@
         //fixed store function
        public static function store()
         {
+            session_start();
             $record = nameSpc\todos::create();
-            $record->ownerid = $_REQUEST['id'];
+            $record->ownerid = $_SESSION['userID'];
             $record->body = $_REQUEST['body'];
             if ($_REQUEST['complete'] == 'Yes') {
                 $record->complete = 1;
@@ -65,7 +61,7 @@
             $record->createddate ='\'' . date('Y-m-d H:i:s') . '\'';
             $record->updateddate ='\'' . date('Y-m-d H:i:s') . '\'';
             $record->save();
-            header('Location: index.php?page=tasks&action=all&id=' . $_REQUEST['id']);
+            header('Location: index.php?page=tasks&action=all');
         }
         //fixed save function
         public static function save()

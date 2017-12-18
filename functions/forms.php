@@ -40,14 +40,14 @@
             $form .= '</form>';
             return $form;
         }
-        static public function createTaskForm ($id) {
-            $form = '<form action="index.php?page=tasks&action=create&id=' . $id . '" method="post" id="form">';
+        static public function createTaskForm () {
+            $form = '<form action="index.php?page=tasks&action=create" method="post" id="form">';
             $form .= '<button type="submit" form="form" value="Create">Create</button>';
             $form .= '</form>';
             return $form;
         }
-        static public function createTaskDetialForm ($id) {
-            $form = '<form action="index.php?page=tasks&action=store&id=' . $id . '" method="post">';
+        static public function createTaskDetialForm () {
+            $form = '<form action="index.php?page=tasks&action=store" method="post">';
             $form .= 'body:     <input type="text" name="body" required></br>';
             $form .= 'complete: <input type="radio" name="complete" value="Yes" checked>Yes';
             $form .= '<input type="radio" name="complete" value="No">No</br>';
@@ -70,12 +70,13 @@
         }
         static public function userUpdateForm($data) {
             $form = '<form action="index.php?page=accounts&action=save&id=' . $data[0]->id . '" method="post">';
-            $form .= 'First name: <input type="text" name="fname" value="' . $data[0]->fname .  '"><br>';
-            $form .= 'Last name: <input type="text" name="lname" value="' . $data[0]->lname . '"><br>';
-            $form .= 'Last name: <input type="text" name="email" value="' . $data[0]->email . '"><br>';
-            $form .= 'Last name: <input type="text" name="phone" value="' . $data[0]->phone . '"><br>';
-            $form .= 'Last name: <input type="text" name="birthday" value="' . $data[0]->birthday . '"><br>';
-            $form .= 'Last name: <input type="text" name="gender" value="' . $data[0]->gender . '"><br>';
+            $form .= 'First name: <input type="text" name="fname" value="' . $data[0]->fname .  '" required><br>';
+            $form .= 'Last name: <input type="text" name="lname" value="' . $data[0]->lname . '" required><br>';
+            $form .= 'Email: <input type="text" name="email" value="' . $data[0]->email . '" required><br>';
+            $form .= 'Phone: <input type="text" name="phone" value="' . $data[0]->phone . '"><br>';
+            $form .= 'Birthday: <input type="text" name="birthday" value="' . $data[0]->birthday . '"><br>';
+            $form .= 'Gender: <input type="text" name="gender" value="' . $data[0]->gender . '"><br>';
+            $form .= 'Password: <input type="password" name="password" ><br>';
             $form .= '<input type="submit" value="Update">';
             $form .= '</form>';
             return $form;
