@@ -39,9 +39,9 @@ namespace core\http;
             $page = request::getPage();
             $action = request::getAction();
             //these are helpful for figuring out the action and method being requested
-            echo 'Action: ' . $action . '</br>';
-            echo 'Page: ' . $page . '</br>';
-            echo 'Request Method: ' . $request_method . '</br>';
+            //echo 'Action: ' . $action . '</br>';
+            //echo 'Page: ' . $page . '</br>';
+            //echo 'Request Method: ' . $request_method . '</br>';
             //this gets the routes objects, you need to add routes to add pages and follow the template of the route specified
             $routes = \routes\routes::getRoutes();
             $foundRoute = NULL;

@@ -15,15 +15,15 @@
             if (!empty($db)) {
                 $array = get_object_vars($this);
                 $array = nameSpc\arrayFunctions::arrayPop($array);
-                foreach ($array as $key => $value) {
-                    if (empty($value)) {
-                        $array[$key] = 'null';
-                    }
-                }
                 $INSERT = FALSE;
                 if ($this->id != '') {
                     $sql = $this->update($array);
                 } else {
+                    foreach ($array as $key => $value) {
+                        if (is_null($value)) {
+                            $array[$key] = 'null';
+                        }
+                    }
                     $array = nameSpc\arrayFunctions::arrayShift($array);
                     $columnArray = nameSpc\arrayFunctions::arrayKeys($array);
                     $columnString = implode(',', $columnArray);
@@ -31,6 +31,7 @@
                     $sql = $this->insert($columnString, $valueString);
                     $INSERT = TRUE;
                 }
+                print($sql);
                 try {
                     $statement = $db->prepare($sql);
                     $statement->execute();
@@ -55,7 +56,7 @@
                 if ($key == 'id') {
                     $sql .= $key . '=' . $column;
                 } else {
-                    if ($column != 'null'){
+                    if (!is_null($column)){
                         $sql .= ',' . $key . '=' . $column;
                     }
                 }

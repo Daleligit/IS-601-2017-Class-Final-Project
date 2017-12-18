@@ -34,8 +34,8 @@
         static public function editTaskDetailForm ($id) {
             $form = '<form action="index.php?page=tasks&action=save&id=' . $id . '" method="post">';
             $form .= 'Message:<input type="text" name="message" required></br>';
-            $form .= 'Isdone: <input type="radio" name="isdone" value="Yes" required />Yes';
-            $form .= '<input type="radio" name="isdone" value="No" required />No</br>';
+            $form .= 'Isdone: <input type="radio" name="isdone" value="Yes" checked>Yes';
+            $form .= '<input type="radio" name="isdone" value="No">No</br>';
             $form .= '<input type="submit" value="Save" name="submit">';
             $form .= '</form>';
             return $form;

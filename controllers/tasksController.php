@@ -52,14 +52,14 @@
 
         //this would be for the post for sending the task edit form
         //fixed store function
-        public static function store()
+       /* public static function store()
         {
             $record = nameSpc\todos::create();
             $record->id = $_REQUEST['id'];
             $record->body = $_REQUEST['body'];
             $record->save();
             print_r($_POST);
-        }
+        } */
         //fixed save function
         public static function save()
         {
