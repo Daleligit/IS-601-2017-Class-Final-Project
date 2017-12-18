@@ -49,7 +49,7 @@
                 $table .= nameSpc::tableLineStart();
                 foreach ($line as $columns => $value) {
                     if ($columns == 'id'){
-                        $valueLink = nameSpc::hyperLink('index.php?page=todos&action=show&id=' . $value, 'View');
+                        $valueLink = nameSpc::hyperLink('index.php?page=tasks&action=show&id=' . $value, 'View');
                         $table .= nameSpc::tableDetail($valueLink);
                     } else if ($columns != 'owneremail' && $columns != 'ownerid') {
                         $table .= nameSpc::tableDetail($value);

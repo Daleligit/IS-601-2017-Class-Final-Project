@@ -50,14 +50,6 @@
 
             $route = new route();
             $route->http_method = 'POST';
-            $route->action = 'show';
-            $route->page = 'tasks';
-            $route->controller = 'tasksController';
-            $route->method = 'show';
-            $routes[] = $route;
-
-            $route = new route();
-            $route->http_method = 'POST';
             $route->action = 'edit';
             $route->page = 'tasks';
             $route->controller = 'tasksController';
