@@ -88,14 +88,20 @@
             return $form;
         }
         static public function editUserForm() {
-            $form = '<form action="index.php?page=accounts&action=edit" method="post" id="form1">';
-            $form .= '<button type="submit" form="form1" value="edit">Edit</button>';
+            $form = '<form action="index.php?page=accounts&action=edit" method="post" id="form3">';
+            $form .= '<button type="submit" form="form3" value="edit">Edit</button>';
             $form .= '</form>';
             return $form;
         }
         static public function userProfile() {
-            $form = '<form action="index.php?page=accounts&action=show" method="post" id="form1">';
-            $form .= '<button type="submit" form="form1" value="profile">Profile</button>';
+            $form = '<form action="index.php?page=accounts&action=show" method="post" id="form4">';
+            $form .= '<button type="submit" form="form4" value="profile">Profile</button>';
+            $form .= '</form>';
+            return $form;
+        }
+        static public function userLogOut () {
+            $form = '<form action="index.php?page=accounts&action=logout" method="post" id="form5">';
+            $form .= '<button type="submit" form="form5" value="logout">Logout</button>';
             $form .= '</form>';
             return $form;
         }

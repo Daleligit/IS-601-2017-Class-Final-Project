@@ -25,10 +25,11 @@
         {
             $records = nameSpc\todos::findAll();
             session_start();
-               if(!key_exists('userID',$_SESSION)) {
-                   echo 'you must be logged in to view tasks';
-               }
-            self::getTemplate('all_tasks', $records);
+            if(!key_exists('userID',$_SESSION)) {
+                echo 'you must be logged in to view tasks';
+            } else {
+                self::getTemplate('all_tasks', $records);
+            }
         }
         //to call the show function the url is called with a post to: index.php?page=task&action=create
         //this is a function to create new tasks
