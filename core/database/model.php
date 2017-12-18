@@ -20,13 +20,14 @@
                         $array[$key] = 'null';
                     }
                 }
-                $columnArray = nameSpc\arrayFunctions::arrayKeys($array);
-                $columnString = implode(',', $columnArray);
-                $valueString = implode(',', $array);
+                $INSERT = FALSE;
                 if ($this->id != '') {
                     $sql = $this->update($array);
                 } else {
                     $array = nameSpc\arrayFunctions::arrayShift($array);
+                    $columnArray = nameSpc\arrayFunctions::arrayKeys($array);
+                    $columnString = implode(',', $columnArray);
+                    $valueString = implode(',', $array);
                     $sql = $this->insert($columnString, $valueString);
                     $INSERT = TRUE;
                 }
@@ -35,8 +36,8 @@
                     $statement->execute();
                     if ($INSERT == TRUE) {
                         $this->id = $db->lastInsertId();
+                        return $this->id;
                     }
-                    return $this->id;
                 } catch (\PDOException $e) {
                     echo 'SQL query error: ' . $e->getMessage();
                 }
@@ -54,7 +55,9 @@
                 if ($key == 'id') {
                     $sql .= $key . '=' . $column;
                 } else {
-                    $sql .= ',' . $key . '=' . $column;
+                    if ($column != 'null'){
+                        $sql .= ',' . $key . '=' . $column;
+                    }
                 }
             }
             $sql .= ' WHERE id = ' . $this->id;

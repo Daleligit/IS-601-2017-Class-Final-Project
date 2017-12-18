@@ -26,7 +26,7 @@
             return $form;
         }
         static public function editTaskForm ($id) {
-            $form = '<form action="index.php?page=tasks&action=edit&id=' . $id .  '" method="get" id="form1">';
+            $form = '<form action="index.php?page=tasks&action=edit&id=' . $id .  '" method="post" id="form1">';
             $form .= '<button type="submit" form="form1" value="edit">Edit</button>';
             $form .= '</form>';
             return $form;
@@ -34,8 +34,8 @@
         static public function editTaskDetailForm ($id) {
             $form = '<form action="index.php?page=tasks&action=save&id=' . $id . '" method="post">';
             $form .= 'Message:<input type="text" name="message"></br>';
-            $form .= 'Isdone: <input type="radio" name="Isdone" value="Yes" />Yes';
-            $form .= '<input type="radio" name="Isdone" value="No" />No</br>';
+            $form .= 'Isdone: <input type="radio" name="isdone" value="Yes" />Yes';
+            $form .= '<input type="radio" name="isdone" value="No" />No</br>';
             $form .= '<input type="submit" value="Save" name="submit">';
             $form .= '</form>';
             return $form;

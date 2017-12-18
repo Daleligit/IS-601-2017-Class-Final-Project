@@ -34,7 +34,7 @@
 
         public static function arrayShift($array)
         {
-            array_Shift($array);
+            array_shift($array);
             return $array;
         }
 

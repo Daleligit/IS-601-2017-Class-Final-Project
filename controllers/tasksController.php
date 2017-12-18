@@ -63,11 +63,17 @@
         //fixed save function
         public static function save()
         {
-            session_start();
             $task = nameSpc\todos::create();
-            $task->body = $_POST['body'];
-            $task->ownerid = $_SESSION['userID'];
+            $task->id = $_REQUEST['id'];
+            $task->message = $_POST['message'];
+            if ($_POST['isdone'] == 'Yes') {
+                $task->isdone = 1;
+            } else {
+                $task->isdone = 0;
+            }
             $task->save();
+            $record = nameSpc\todos::findOne($_REQUEST['id']);
+            self::getTemplate('edit_task', $record);
         }
         //this is the delete function.  You actually return the edit form and then there should be 2 forms on that.
         //One form is the todo and the other is just for the delete button
@@ -77,6 +83,7 @@
             $record = nameSpc\todos::create();
             $record->id = $_REQUEST['id'];
             $record->delete();
-            header('Location: index.php?page=tasks&action=all');
+            $records = nameSpc\todos::findAll();
+            self::getTemplate('all_tasks', $records);
         }
     }
