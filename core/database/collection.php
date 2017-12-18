@@ -32,6 +32,7 @@
         }
         //you can use this to run other queries in on classes that extend the collection class because this is protected
         protected static function getResults($sql) {
+            //print($sql);
             $db = dbConn::getConnection();
             $statement = $db->prepare($sql);
             $statement->execute();

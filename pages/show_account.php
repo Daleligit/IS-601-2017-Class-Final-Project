@@ -7,7 +7,7 @@
  */
     use \functions\stringFunctions as nameSpc1, \functions\forms as nameSpc2, \core\utility\htmlTable as nameSpc3;
     $html = nameSpc3::createAccountTable($data);
-    $html .= nameSpc2::editUserForm($data[0]->id);
-    $html .= nameSpc2::deleteUserForm($data[0]->id);
+    $html .= nameSpc2::editUserForm();
+    $html .= nameSpc2::deleteUserForm();
     nameSpc1::printThis($html);
 ?>

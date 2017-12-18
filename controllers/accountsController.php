@@ -14,7 +14,8 @@
         //to call the show function the url is index.php?page=task&action=show
         public static function show()
         {
-            $record = nameSpc\accounts::findOne($_REQUEST['id']);
+            session_start();
+            $record = nameSpc\accounts::findOne($_SESSION['userID']);
             self::getTemplate('show_account', $record);
         }
 
@@ -68,15 +69,17 @@
 
         public static function edit()
         {
-            $record = nameSpc\accounts::findOne($_REQUEST['id']);
+            session_start();
+            $record = nameSpc\accounts::findOne($_SESSION['userID']);
             self::getTemplate('edit_account', $record);
         }
 
     //this is used to save the update form data
         public static function save()
         {
+            session_start();
             $user = nameSpc\accounts::create();
-            $user->id = $_REQUEST['id'];
+            $user->id = $_SESSION['userID'];
             $user->email = '\'' . $_POST['email'] . '\'';
             $user->fname = '\'' . $_POST['fname'] . '\'';
             $user->lname = '\'' . $_POST['lname'] . '\'';
@@ -87,13 +90,14 @@
                 $user->password = '\'' . $user->setPassword($_POST['password']) . '\'';
             }
             $user->save();
-            header("Location: index.php?page=accounts&action=show&id=" . $_REQUEST['id']);
+            header("Location: index.php?page=accounts&action=show");
         }
 
         public static function delete()
         {
+            session_start();
             $record = nameSpc\accounts::create();
-            $record->id = $_REQUEST['id'];
+            $record->id = $_SESSION['userID'];
             $record->delete();
             header("Location: index.php");
         }
