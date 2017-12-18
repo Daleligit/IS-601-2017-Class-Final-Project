@@ -88,6 +88,24 @@
             $route->method = 'create';
             $routes[] = $route;
 
+            //this is the route for the reg form
+            $route = new route();
+            $route->http_method = 'GET';
+            $route->action = 'register';
+            $route->page = 'accounts';
+            $route->controller = 'accountsController';
+            $route->method = 'register';
+            $routes[] = $route;
+
+            //this handles the reg post to create the user
+            $route = new route();
+            $route->http_method = 'POST';
+            $route->action = 'register';
+            $route->page = 'accounts';
+            $route->controller = 'accountsController';
+            $route->method = 'store';
+            $routes[] = $route;
+
             return $routes;
         }
     }

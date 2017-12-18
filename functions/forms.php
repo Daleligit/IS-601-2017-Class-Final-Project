@@ -55,5 +55,18 @@
             $form .= '</form>';
             return $form;
         }
+        static public function registerForm () {
+            $form = '<form action="index.php?page=accounts&action=register" method="post">';
+            $form .= 'First name: <input type="text" name="fname" required><br>';
+            $form .= 'Last name: <input type="text" name="lname" required><br>';
+            $form .= 'Email: <input type="text" name="email" required><br>';
+            $form .= 'Password: <input type="password" name="password" required><br>';
+            $form .= 'Phone: <input type="text" name="phone"><br>';
+            $form .= 'Birthday: <input type="text" name="birthday"><br>';
+            $form .= 'Gender: <input type="text" name="gender"><br>';
+            $form .= '<input type="submit" value="Submit form">';
+            $form .= '</form>';
+            return $form;
+        }
     }
 ?>
