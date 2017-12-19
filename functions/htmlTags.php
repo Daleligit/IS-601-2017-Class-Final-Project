@@ -23,7 +23,7 @@
             return '</body>';
         }
         static public function tableHead($name) {
-            return '<table id=' . $name . '>';
+            return '<table id=' . $name . ' align="center">';
         }
         static public function tableLineStart() {
             return '<tr>';

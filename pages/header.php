@@ -15,4 +15,5 @@
     <![endif]-->
 </head>
 
-<body>
+<body style="text-align:center;">
+<div style="margin:0px auto">
