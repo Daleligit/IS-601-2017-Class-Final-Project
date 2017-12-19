@@ -53,17 +53,11 @@
                 //this is a mistake you can fix...
                 //Turn the set password function into a static method on a utility class.
                 $user->password = '\'' . $user->setPassword($_POST['password']) . '\'';
-                if (nameSpc2::stringLength($_POST['password']) >=6){
-                    $user->save();
-                    //you may want to send the person to a
-                    // login page or create a session and log them in
-                    // and then send them to the task list page and a link to create tasks
-                    header("Location: index.php");
-                }   else {
-                    $error = 'Please Input Valid Password (Length>=6)';
-                    self::getTemplate('error', $error);
-                }
-
+                $user->save();
+                //you may want to send the person to a
+                // login page or create a session and log them in
+                // and then send them to the task list page and a link to create tasks
+                header("Location: index.php");
             } else {
                 //You can make a template for errors called error.php
                 // and load the template here with the error you want to show.
@@ -92,17 +86,9 @@
             $user->phone = '\'' . $_POST['phone'] . '\'';
             $user->birthday = '\'' . $_POST['birthday'] . '\'';
             $user->gender = '\'' . $_POST['gender'] . '\'';
-            if (!empty($_POST['password']) && nameSpc2::stringLength($_POST['password'])>=6) {
-                $user->password = '\'' . $user->setPassword($_POST['password']) . '\'';
-                $user->save();
-                header("Location: index.php?page=accounts&action=show");
-            } elseif (empty($_POST['password'])){
-                $user->save();
-                header("Location: index.php?page=accounts&action=show");
-            } else{
-                echo 'Please Input Valid Password (Length>=6)';
-                echo nameSpc3::backBottom('index.php?page=accounts&action=edit','Back');
-            }
+            $user->password = '\'' . $user->setPassword($_POST['password']) . '\'';
+            $user->save();
+            header("Location: index.php?page=accounts&action=show");
         }
 
         public static function delete()
