@@ -100,7 +100,7 @@
                 $user->save();
                 header("Location: index.php?page=accounts&action=show");
             } else{
-                echo '\'Please Input Valid Password (Length>=6)';
+                echo 'Please Input Valid Password (Length>=6)';
                 echo nameSpc3::backBottom('index.php?page=accounts&action=edit','Back');
             }
         }
